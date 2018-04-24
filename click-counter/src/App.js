@@ -11,9 +11,10 @@ class App extends Component {
       error: false,
     };
 
-    // need to bind this for decrementCounter, since it uses
+    // need to bind this for decrementCounter and incrementCounter, since they use
     // this.state and this.setState
     this.decrementCounter = this.decrementCounter.bind(this)
+    this.incrementCounter = this.incrementCounter.bind(this)
   }
   // for challenge #2, the behavior for decrement is complicated enough
   // that I separated the function from the jsx.
@@ -25,10 +26,18 @@ class App extends Component {
     }
   }
 
+  // for challenge #3, I separated the incrementCounter onClick
+  incrementCounter() {
+    if (this.state.error) {
+      this.setState({ error: false });
+    }
+    this.setState({ counter: this.state.counter + 1 });
+  }
+
   render() {
     // determine whether error is hidden based on state
     const errorClass = this.state.error ? '' : 'hidden';
-    
+
     return (
       <div data-test="component-app">
       <h1 data-test="counter-display">The counter is currently {this.state.counter}</h1>
@@ -37,7 +46,7 @@ class App extends Component {
       </div>
       <button
         data-test="increment-button"
-        onClick={() => this.setState({ counter: this.state.counter + 1 })}
+        onClick={this.incrementCounter}
         >
         Increment counter
       </button>

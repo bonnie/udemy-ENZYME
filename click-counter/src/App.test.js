@@ -133,5 +133,15 @@ describe('Decrement', () => {
       const counterDisplay = findByTestAttr(wrapper, 'counter-display');
       expect(counterDisplay.text()).toContain(0);
     });
+    test('clicking increment clears the error', () => {
+      // find and click the increment button
+      const button = findByTestAttr(wrapper, 'increment-button');
+      button.simulate('click');
+
+      // check the class of the error message
+      const errorDiv = findByTestAttr(wrapper, 'error-message');
+      const errorHasHiddenClass = errorDiv.hasClass('hidden');
+      expect(errorHasHiddenClass).toBe(true);
+    });
   });
 });
