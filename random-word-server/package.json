@@ -2,6 +2,11 @@
   "name": "random-word-server",
   "version": "1.0.0",
   "author": "Bonnie Schulkin",
+  "license": "AGPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flyrightsister/udemy-react-testing-projects.git"
+  },
   "scripts": {
     "start": "node server.js",
     "test": "jest --forceExit"

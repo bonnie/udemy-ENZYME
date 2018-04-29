@@ -1,7 +1,12 @@
 {
   "name": "click-counter",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.0.0",
+  "author": "Bonnie Schulkin",
+  "license": "AGPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flyrightsister/udemy-react-testing-projects.git"
+  },
   "dependencies": {
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
