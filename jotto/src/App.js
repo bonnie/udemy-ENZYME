@@ -6,10 +6,17 @@ import './App.css';
 import TotalGuesses from './TotalGuesses';
 // END: Challenge #1: Number of Guesses
 
+// Challenge #2: Reset Game
+import NewWordButton from './NewWordButton';
+// END: Challenge #2: Reset Game
+
 import GuessedWords from './GuessedWords';
 import Congrats from './Congrats';
 import Input from './Input';
-import { getSecretWord } from './actions';
+
+// Challenge #2: Reset Game
+import { getSecretWord, resetGame } from './actions';
+// END: Challenge #2: Reset Game
 
 export class UnconnectedApp extends Component {
   /**
@@ -27,8 +34,14 @@ export class UnconnectedApp extends Component {
       <div className="container">
         <h1>Jotto</h1>
         <Congrats success={this.props.success} />
+
+        {/* Challenge #2: Reset Game */}
+        <NewWordButton display={this.props.success} resetAction={this.props.resetGame} />
+        {/* END: Challenge #2: Reset Game */}
+        
         <Input />
         <GuessedWords guessedWords={this.props.guessedWords} />
+
         {/* Challenge #1: Number of guesses */}
         <TotalGuesses guessCount={this.props.guessedWords.length} />
         {/* END: Challenge #1: Number of guesses */}
@@ -42,4 +55,8 @@ const mapStateToProps = (state) => {
   return { success, guessedWords, secretWord };
 }
 
-export default connect(mapStateToProps, { getSecretWord })(UnconnectedApp);
+// Challenge #2: Reset Game
+const actions = { getSecretWord, resetGame };
+
+export default connect(mapStateToProps, actions)(UnconnectedApp);
+// END: Challenge #2: Reset Game
