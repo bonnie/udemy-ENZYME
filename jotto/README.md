@@ -26,6 +26,7 @@
   * Create a “New word” button component
     * only display after successful guess
   * Upon click, reset the game with a new word from the server
+  * _Note_: This can be done with a connected component (which lends itself to state testing similar to `Input.js`) or with an unconnected component which receives the action creator from the parent `App.js` component (which will require unit testing for action creators and reducers instead, as using a store with an unconnected component is not covered in this course). The solution in the `jotto-challenges` branch covers the second approach.
 
 ### 3. “Give up” Button
   ![Give Up Button Wireframe](https://github.com/flyrightsister/udemy-react-testing-projects/blob/master/jotto/readme-images/give-up-button_wireframe.png)
