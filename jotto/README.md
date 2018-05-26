@@ -42,10 +42,11 @@
   ![Enter Secret Word Button Wireframe](https://github.com/flyrightsister/udemy-react-testing-projects/blob/master/jotto/readme-images/enter-secret-word_wireframe.png)  
   ![Secret Word Entry Form Wireframe](https://github.com/flyrightsister/udemy-react-testing-projects/blob/master/jotto/readme-images/secret-word-entry-form_wireframe.png)  
 
-  * Add a feature where the user can input the secret word
-    * If the user wants to play against a friend
-    * In this case, use the user’s secret word, and not a word from the server
+  * Add a button for the user to input the secret word
+    * This way, the user can play against a friend
+  * After submission, the game should use the user’s secret word, not a word from the server
   * This button should disapppear once the user has nonzero `guessedWords`
+    * Should disappear whether the word came from the server or user input
 
 ### 5. Random Word Server Error
   ![Random Word Server Error Wireframe](https://github.com/flyrightsister/udemy-react-testing-projects/blob/master/jotto/readme-images/random-word-server-error_wireframe.png) 
