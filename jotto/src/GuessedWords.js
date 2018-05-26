@@ -10,8 +10,8 @@ const GuessedWords = (props) => {
       </span>
     );
   } else {
-    const guessedWordsRows = props.guessedWords.map(word => (
-      <tr data-test="guessed-word" key={ word.guessedWord }>
+    const guessedWordsRows = props.guessedWords.map((word, index) => (
+      <tr data-test="guessed-word" key={ index }>
         <td>{ word.guessedWord }</td>
         <td>{ word.letterMatchCount }</td>
       </tr>
