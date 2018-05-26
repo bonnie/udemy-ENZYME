@@ -15,31 +15,53 @@ const setup = (state={}) => {
   return wrapper;
 }
 
+// Challenge #3: Refactored to set up the wrapper once in a beforeEach 
 describe('redux properties', () => {
+  let wrapper;
+  const success = false;
+  const gaveUp = false;
+  const secretWord = 'party';
+  const guessedWords = [{ guessedWord: 'train', letterMatchCount: 3 }];
+
+  beforeEach(() => {
+    wrapper = setup({ 
+      success,
+      gaveUp,
+      secretWord,
+      guessedWords,
+    });
+  })
   test('has access to `success` state', () => {
-    const success = true;
-    const wrapper = setup({ success });
     const successProp = wrapper.instance().props.success;
     expect(successProp).toBe(success);
   });
+  // Challenge #3: Give Up Button
+  test('has access to `gaveUp` state', () => {
+    const gaveUpProp = wrapper.instance().props.gaveUp;
+    expect(gaveUpProp).toBe(gaveUp);
+  });
+  // END: Challenge #3: Give Up Button
   test('has access to `secretWord` state', () => {
-    const secretWord = 'party';
-    const wrapper = setup({ secretWord });
     const secretWordProp = wrapper.instance().props.secretWord;
     expect(secretWordProp).toBe(secretWord);
   });
   test('has access to `guessedWords` state', () => {
-    const guessedWords = [{ guessedWord: 'train', letterMatchCount: 3 }];
-    const wrapper = setup({ guessedWords });
     const guessedWordsProp = wrapper.instance().props.guessedWords;
     expect(guessedWordsProp).toEqual(guessedWords);
   });
   test('`getSecretWord` action creator is a function on the props', () => {
-    const wrapper = setup();
     const getSecretWordProp = wrapper.instance().props.getSecretWord;
     expect(getSecretWordProp).toBeInstanceOf(Function);
   });
+  // Challenge #2: Reset Game
+  test('`resetGame` action creator is a function on the props', () => {
+    const resetGameProp = wrapper.instance().props.resetGame;
+    expect(resetGameProp).toBeInstanceOf(Function);
+  });
+  // END: Challenge #2: Reset Game
 });
+// END: Challenge #3: Refactored to set up the wrapper once in a beforeEach 
+
 
 test('`getSecretWord` runs on App mount', () => {
   const getSecretWordMock = jest.fn();
@@ -47,6 +69,10 @@ test('`getSecretWord` runs on App mount', () => {
   const props = {
     getSecretWord: getSecretWordMock,
     success: false,
+    // Challenge #3: Give Up Button
+    gaveUp: false,
+    // END: Challenge #3: Give Up Button
+    secretWord: 'party',
     guessedWords: [],
   }
 

@@ -10,6 +10,10 @@ import TotalGuesses from './TotalGuesses';
 import NewWordButton from './NewWordButton';
 // END: Challenge #2: Reset Game
 
+// Challenge #2: Reset Game
+import SecretWordReveal from './SecretWordReveal';
+// END: Challenge #2: Reset Game
+
 import GuessedWords from './GuessedWords';
 import Congrats from './Congrats';
 import Input from './Input';
@@ -29,16 +33,22 @@ export class UnconnectedApp extends Component {
   }
 
   render() {
-    console.log(this.props.secretWord);
     return (
       <div className="container">
         <h1>Jotto</h1>
         <Congrats success={this.props.success} />
 
-        {/* Challenge #2: Reset Game */}
-        <NewWordButton display={this.props.success} resetAction={this.props.resetGame} />
-        {/* END: Challenge #2: Reset Game */}
-        
+        {/* Challenge #3: Give Up Button */}
+        <SecretWordReveal display={this.props.gaveUp} secretWord={this.props.secretWord} />
+        {/* END: Challenge #3: Give Up Button */}
+
+        {/* Challenge #2 and #3 */}
+        <NewWordButton 
+          display={this.props.success || this.props.gaveUp } 
+          resetAction={this.props.resetGame} />
+        {/* END: Challenge #2 and #3 */}
+
+
         <Input />
         <GuessedWords guessedWords={this.props.guessedWords} />
 
@@ -50,9 +60,8 @@ export class UnconnectedApp extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  const { success, guessedWords, secretWord } = state;
-  return { success, guessedWords, secretWord };
+const mapStateToProps = ({ success, guessedWords, secretWord, gaveUp }) => {
+  return { success, guessedWords, secretWord, gaveUp };
 }
 
 // Challenge #2: Reset Game

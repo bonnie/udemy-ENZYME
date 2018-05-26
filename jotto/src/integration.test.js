@@ -1,6 +1,11 @@
 import { storeFactory } from '../test/testUtils';
 import { guessWord } from './actions';
 
+/* NOTE: it's a sign that these tests weren't optimally designed that we had to
+   `giveUp: false` to every `expectedState`. How would you refactor the tests to
+   be more robust when adding new pieces of state? 
+*/
+
 describe('guessWord action dispatcher', () => {
   const secretWord = 'party';
   const unsuccessfulGuess = 'train';
@@ -16,6 +21,9 @@ describe('guessWord action dispatcher', () => {
       const expectedState = {
         ...initialState,
         success: false,
+        // Challenge #3: Give Up Button
+        gaveUp: false,
+        // END: Challenge #3: Give Up Button
         guessedWords: [{
           guessedWord: unsuccessfulGuess,
           letterMatchCount: 3
@@ -29,6 +37,9 @@ describe('guessWord action dispatcher', () => {
       const expectedState = {
         secretWord,
         success: true,
+        // Challenge #3: Give Up Button
+        gaveUp: false,
+        // END: Challenge #3: Give Up Button
         guessedWords: [{
           guessedWord: secretWord,
           letterMatchCount: 5,
@@ -50,6 +61,9 @@ describe('guessWord action dispatcher', () => {
       const expectedState = {
         secretWord,
         success: false,
+        // Challenge #3: Give Up Button
+        gaveUp: false,
+        // END: Challenge #3: Give Up Button
         guessedWords: [...guessedWords, { guessedWord: unsuccessfulGuess, letterMatchCount: 3 }]
       };
       expect(newState).toEqual(expectedState);
@@ -60,6 +74,9 @@ describe('guessWord action dispatcher', () => {
       const expectedState = {
         secretWord,
         success: true,
+        // Challenge #3: Give Up Button
+        gaveUp: false,
+        // END: Challenge #3: Give Up Button
         guessedWords: [...guessedWords,
           { guessedWord: secretWord, letterMatchCount: 5 }]
       };
