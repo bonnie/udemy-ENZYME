@@ -43,6 +43,7 @@
   ![Enter Secret Word Button Wireframe](https://github.com/flyrightsister/udemy-react-testing-projects/blob/master/jotto/readme-images/enter-secret-word_wireframe.png)  
   ![Secret Word Entry Form Wireframe](https://github.com/flyrightsister/udemy-react-testing-projects/blob/master/jotto/readme-images/secret-word-entry-form_wireframe.png)  
 
+  * _Note: This one is quite involved, with a new piece of state, Redux Thunk, and testing that an action creator receives the correct argument. Not for the faint of heart! It is great for using existing tests to see whether new code breaks old functionality._
   * Add a button for the user to input the secret word
     * This way, the user can play against a friend
   * After submission, the game should use the user’s secret word, not a word from the server
