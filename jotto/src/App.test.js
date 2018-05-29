@@ -88,3 +88,7 @@ test('`getSecretWord` runs on App mount', () => {
   expect(getSecretWordCallCount).toBe(1);
 
 });
+
+// NOTE: the logic of what displays according to state 
+// should be tested here. That is left as an exercise for
+// the student. :-)
