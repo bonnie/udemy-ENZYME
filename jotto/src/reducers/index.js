@@ -8,6 +8,10 @@ import userEnter from './userEnterReducer';
 import gaveUp from './gaveUpReducer';
 // END: Challenge #3: Give Up Button
 
+// Challenge #5: Server Error
+import serverError from './serverErrorReducer';
+// END: Challenge #5: Server Error
+
 
 export default combineReducers({
   success,
@@ -16,7 +20,10 @@ export default combineReducers({
   // Challenge #3: Give Up Button
   gaveUp,
   // END: Challenge #3: Give Up Button
-  // Challenge #3: Give Up Button
+  // Challenge #4: Enter Secret Word
   userEnter,
-  // END: Challenge #3: Give Up Button
+  // END: Challenge #4: Enter Secret Word
+  // Challenge 5: Server Error
+  serverError,
+  // END: Challenge #5: Server Error
 });
