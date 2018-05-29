@@ -1,6 +1,9 @@
 import axios from 'axios';
 
 import { getLetterMatchCount } from '../helpers';
+import { wordnikKey } from '../config.js';
+
+export const WORDNIK_URL = `https://api.wordnik.com/v4/words.json/randomWord?hasDictionaryDef=true&minCorpusCount=1000&minDictionaryCount=100&maxDictionaryCount=-1&minLength=5&maxLength=5&api_key=${wordnikKey}`;
 
 export const actionTypes = {
   CORRECT_GUESS: 'CORRECT_GUESS',
@@ -61,6 +64,32 @@ const getSecretWordDispatch = (dispatch) => {
     // END: Challenge #5: Server Error
 };
 
+// Challenge #6: Wordnik
+/**
+ * Dispatch axios action to get secret word from Wordnik.
+ * Separate this out so it can be used in getSecretWord and resetGame.
+ * @function getSecretWordWordnikDispatch
+ * @param {dispatch} dispatch - Redux Thunk dispatch.
+ * 
+ */
+const getSecretWordWordnikDispatch = (dispatch) => {
+  return axios.get(WORDNIK_URL)
+    .then(response => {
+      dispatch({
+        type: actionTypes.SET_SECRET_WORD,
+        // NOTE: to be true to the rules of jotto here,
+        // we would reject any word with duplicate letters
+        // and try again. However, my commitment to Jotto is
+        // not that strong right now. :p
+        payload: response.data.word
+      });
+    })
+    .catch(err => {
+      dispatch({ type: actionTypes.SERVER_ERROR })
+    });
+  }
+// END: Challenge #6: Wordnik
+
 /**
  * Returns Redux Thunk function that dispatches GET_SECRET_WORD action
  *     after axios promise resolves
@@ -68,7 +97,7 @@ const getSecretWordDispatch = (dispatch) => {
  * @returns {function} - Redux Thunk function.
 */
 export const getSecretWord = () => {
-  return getSecretWordDispatch;
+  return getSecretWordWordnikDispatch; // Challenge #6: Wordnik
 };
 
 /**
@@ -79,7 +108,7 @@ export const getSecretWord = () => {
 export const resetGame = () => {
   return (dispatch) => {
     dispatch({ type: actionTypes.RESET_GAME });
-    return getSecretWordDispatch(dispatch);
+    return getSecretWordWordnikDispatch(dispatch); // Challenge #6: Wordnik
   }
 };
 // END: Challenge #2: Reset Game

@@ -18,7 +18,13 @@ describe('getSecretWord action creator', () => {
       const request = moxios.requests.mostRecent();
       request.respondWith({
         status: 200,
-        response: secretWord,
+
+        // Challenge #6: Wordnik
+        // NOTE: this is the only thing in the tests that needs to change
+        // since the shape of the response is different from wordnik
+        // Otherwise, the tests simply work!
+        response: { word: secretWord },
+        // END: Challenge #6: Wordnik
       });
     });
 
@@ -64,3 +70,5 @@ describe('getSecretWord action creator', () => {
     });
   })
 });
+
+
