@@ -32,6 +32,11 @@ export const guessWord = (guessedWord) => {
   };
 };
 
+/**
+ * Returns Redux Thunk function that initiates an axios request 
+ *    and dispatches the response as a 'SET_SECRET_WORD' action
+ * @returns {function} - Redux Thunk function. 
+ */
 export const getSecretWord = () => {
   return (dispatch) => {
     return axios.get('http://localhost:3030')
