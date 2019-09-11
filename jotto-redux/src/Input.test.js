@@ -12,7 +12,7 @@ import Input, { UnconnectedInput } from './Input';
 */
 const setup = (initialState={}) => {
   const store = storeFactory(initialState);
-  const wrapper = shallow(<Input store={store} />).dive();
+  const wrapper = shallow(<Input store={store} />).dive().dive();
   return wrapper;
 }
 

@@ -11,7 +11,7 @@ import App, { UnconnectedApp } from './App';
  */
 const setup = (state={}) => {
   const store = storeFactory(state);
-  const wrapper = shallow(<App store={store} />).dive();
+  const wrapper = shallow(<App store={store} />).dive().dive();
   return wrapper;
 }
 
