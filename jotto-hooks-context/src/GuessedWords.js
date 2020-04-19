@@ -17,6 +17,7 @@ const GuessedWords = () => {
   } else {
     const guessedWordsRows = guessedWords.map((word, index) => (
       <tr data-test="guessed-word" key={ index }>
+        <td data-test="guessed-word-index">{ index + 1 }</td>
         <td>{ word.guessedWord }</td>
         <td>{ word.letterMatchCount }</td>
       </tr>
@@ -27,6 +28,11 @@ const GuessedWords = () => {
         <table className="table table-sm">
           <thead className="thead-light">
             <tr>
+              {// Challenge #1: Number of Guesses
+              }
+              <th>{stringsModule.getStringByLanguage(language, 'numberColumnHeader')}</th>
+              {// END: Challenge #1: Number of Guesses
+              }
               <th>{stringsModule.getStringByLanguage(language, 'guessColumnHeader')}</th>
               <th>{stringsModule.getStringByLanguage(language, 'matchingLettersColumnHeader')}</th>
             </tr>
@@ -35,6 +41,11 @@ const GuessedWords = () => {
             { guessedWordsRows }
           </tbody>
         </table>
+        {// Challenge #1: Number of Guesses
+        }
+        <div data-test='total-guesses'>{stringsModule.getStringByLanguage(language, 'totalGuesses')}: {guessedWords.length}</div>
+        {// END: Challenge #1: Number of Guesses
+        }
       </div>
     );
   }

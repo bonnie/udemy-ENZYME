@@ -4,6 +4,7 @@ import { findByTestAttr } from '../test/testUtils';
 import GuessedWords from './GuessedWords';
 
 import guessedWordsContext from './contexts/guessedWordsContext';
+import { number } from 'prop-types';
 
 /**
 * Factory function to create a ShallowWrapper for the GuessedWords component.
@@ -53,6 +54,18 @@ describe('if there are words guessed', () => {
     const guessedWordNodes = findByTestAttr(wrapper, 'guessed-word');
     expect(guessedWordNodes.length).toBe(guessedWords.length);
   });
+  // Challenge #1: Number of Guesses
+  test('includes guess word index for each word', () => {
+    const guessWordIndexes = findByTestAttr(wrapper, 'guessed-word-index');
+    const indexesText = guessWordIndexes.map(wrapper => wrapper.text());
+    const expectedText = guessedWords.map((word, index) => (index + 1).toString());
+    expect(indexesText).toEqual(expectedText);
+  });
+  test('number of guesses is displayed correctly', () => {
+    const numberOfGuessesDiv = findByTestAttr(wrapper, 'total-guesses');
+    expect(numberOfGuessesDiv.text()).toContain(guessedWords.length)
+  })
+  // END: Challenge #1: Number of Guesses
 });
 
 describe("languagePicker", () => {

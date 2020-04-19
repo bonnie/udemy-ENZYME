@@ -5,6 +5,10 @@ const languageStrings = {
    guessPrompt: 'Try to guess the secret word!',
    guessInputPlaceholder: 'enter guess',
    guessColumnHeader: 'Guessed Words',
+   // Challenge #1: Number of Guesses
+   numberColumnHeader: '#',
+   totalGuesses: 'Total Guesses',
+   // END: Challenge #1: Number of Guesses
    guessedWords: 'Guesses',
    matchingLettersColumnHeader: 'Matching Letters',
   },
@@ -15,7 +19,10 @@ const languageStrings = {
    guessInputPlaceholder: '⌨️🤔',
    guessedWords: '🤷‍🔤',
    guessColumnHeader: '🤷‍',
-   matchingLettersColumnHeader: '✅',
+   // Challenge #1: Number of Guesses
+   numberColumnHeader: '🔢',
+   totalGuesses: '🔢🤷‍♀️',
+   // END: Challenge #1: Number of Guesses   matchingLettersColumnHeader: '✅',
   }
 }
 
