@@ -11,6 +11,9 @@ const languageStrings = {
    // END: Challenge #1: Number of Guesses
    guessedWords: 'Guesses',
    matchingLettersColumnHeader: 'Matching Letters',
+   // Challenge #2: Reset Game
+   newWord: 'New Word',
+   // END: Challenge #2: Reset Game
   },
   emoji: {
    congrats: '🎯🎉',
@@ -22,7 +25,11 @@ const languageStrings = {
    // Challenge #1: Number of Guesses
    numberColumnHeader: '🔢',
    totalGuesses: '🔢🤷‍♀️',
-   // END: Challenge #1: Number of Guesses   matchingLettersColumnHeader: '✅',
+   // END: Challenge #1: Number of Guesses
+   matchingLettersColumnHeader: '✅',
+   // Challenge #2: Reset Game
+   newWord: '✨🔤',
+   // END: Challenge #2: Reset Game
   }
 }
 

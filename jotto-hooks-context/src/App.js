@@ -9,6 +9,7 @@ import LanguagePicker from './LanguagePicker';
 import Input from './Input';
 import Congrats from './Congrats';
 import GuessedWords from './GuessedWords';
+import NewWordButton from './NewWordButton';
 
 /**
  * Reducer to update state, called automatically by dispatch
@@ -64,6 +65,7 @@ function App() {
         <guessedWordsContext.GuessedWordsProvider>
           <successContext.SuccessProvider>
             <Congrats />
+            <NewWordButton {...setSecretWord}/>
             <Input secretWord={state.secretWord} />
           </successContext.SuccessProvider>
           <GuessedWords />
