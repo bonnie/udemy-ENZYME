@@ -9,7 +9,7 @@
 
 * `jotto-challenges`
 
-  [This branch](https://github.com/flyrightsister/udemy-react-testing-projects/tree/jotto-challenges/jotto) contains solutions to the challenges.
+  [This branch](https://github.com/flyrightsister/udemy-react-testing-projects/tree/jotto-challenges/jotto) contains solutions to the challenges. You can also find challenge solutions in the [SOLUTIONS: Jotto Redux Challenges](https://github.com/flyrightsister/udemy-react-testing-projects/tree/master/SOLUTIONS:%20Jotto%20Redux%20Challenges) folder.
 
 ## Challenges
 

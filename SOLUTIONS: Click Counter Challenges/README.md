@@ -9,7 +9,7 @@
 
 * `click-counter-challenges`
 
-  This branch contains solutions to the challenges.
+  This branch contains solutions to the challenges. You can also find challenge solutions in the [SOLUTIONS: Click Counter Challenges](https://github.com/flyrightsister/udemy-react-testing-projects/tree/master/SOLUTIONS:%20Click%20Counter%20Challenges) folder.
 
 ## Challenges
 
