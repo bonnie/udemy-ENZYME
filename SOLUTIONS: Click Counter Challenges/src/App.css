@@ -1,0 +1,14 @@
+.App {
+  text-align: center;
+}
+
+/* error styling for challenge #2 */
+.error {
+  font-size: 150%;
+  color: red;
+}
+
+/* for challenge #2 and #3 to show / hide error message */
+.hidden {
+  display: none;
+}
