@@ -1,15 +1,9 @@
 # Jotto
 ### A React app with hooks and contexts used to demonstrate testing
 
-## Branches
+## Solutions
 
-*  `master`
-
-  This branch represents the project at the end of the instructional videos, without any of the challenges completed.
-
-* `jotto-hooks-challenges`
-
-  [This branch](https://github.com/flyrightsister/udemy-react-testing-projects/tree/jotto-challenges/jotto) contains solutions to the challenges.
+Solutions can be found in the [SOLUTIONS: Jotto Hooks- Context Challenges](https://github.com/flyrightsister/udemy-react-testing-projects/tree/master/SOLUTIONS:%20Jotto%20Hooks-Context%20Challenges) folder.
 
 ## Challenges
 

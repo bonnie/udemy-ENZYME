@@ -1,15 +1,10 @@
 # Jotto
 ### A React / Redux app used to demonstrate testing
 
-## Branches
+## Solutions
 
-*  `master`
+Solutions can be found in the [SOLUTIONS: Jotto Hooks- Context Challenges](https://github.com/flyrightsister/udemy-react-testing-projects/tree/master/SOLUTIONS:%20Jotto%20Hooks-Context%20Challenges) folder.
 
-  This branch represents the project at the end of the instructional videos, without any of the challenges completed.
-
-* `jotto-challenges`
-
-  This branch contains solutions to the challenges. You can also find challenge solutions in the [SOLUTIONS: Jotto Redux Challenges](https://github.com/flyrightsister/udemy-react-testing-projects/tree/master/SOLUTIONS:%20Jotto%20Redux%20Challenges) folder.
 
 ## Challenges
 
