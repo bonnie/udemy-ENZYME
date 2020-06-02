@@ -3,7 +3,7 @@
 
 ## Solutions
 
-Solutions can be found in the [SOLUTIONS: Jotto Hooks- Context Challenges](https://github.com/flyrightsister/udemy-react-testing-projects/tree/master/SOLUTIONS:%20Jotto%20Hooks-Context%20Challenges) folder.
+Solutions can be found in the [SOLUTIONS for Jotto Hooks- Context Challenges](https://github.com/flyrightsister/udemy-react-testing-projects/tree/master/SOLUTIONS%20for%20Jotto%20Hooks-Context%20Challenges) folder.
 
 ## Challenges
 
