@@ -37,8 +37,8 @@ describe('render', () => {
     });
     // Challenge #3: Give Up Button
     test('renders "give up" button', () => {
-      const submitButton = findByTestAttr(wrapper, 'give-up-button');
-      expect(submitButton.length).toBe(1);
+      const giveUpButton = findByTestAttr(wrapper, 'give-up-button');
+      expect(giveUpButton.length).toBe(1);
     });
     // END: Challenge #3: Give Up Button
   });
