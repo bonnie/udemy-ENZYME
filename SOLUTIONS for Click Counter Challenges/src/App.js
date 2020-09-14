@@ -1,64 +1,49 @@
-import React, { Component } from 'react';
+import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
+function App() {
+  const [count, setCount] = React.useState(0);
+  const [error, setError] = React.useState(false);
 
-    this.state = {
-      counter: 0,
-      error: false,
-    };
-
-    // need to bind this for decrementCounter and incrementCounter, since they use
-    // this.state and this.setState
-    this.decrementCounter = this.decrementCounter.bind(this)
-    this.incrementCounter = this.incrementCounter.bind(this)
-  }
-  // for challenge #2, the behavior for decrement is complicated enough
-  // that I separated the function from the jsx.
-  decrementCounter() {
-    if (this.state.counter === 0) {
-      this.setState({ error: true });
-    } else {
-      this.setState({ counter: this.state.counter - 1 });
-    }
-  }
-
-  // for challenge #3, I separated the incrementCounter onClick
-  incrementCounter() {
-    if (this.state.error) {
-      this.setState({ error: false });
-    }
-    this.setState({ counter: this.state.counter + 1 });
-  }
-
-  render() {
-    // determine whether error is hidden based on state
-    const errorClass = this.state.error ? '' : 'hidden';
-
-    return (
-      <div data-test="component-app">
-      <h1 data-test="counter-display">The counter is currently {this.state.counter}</h1>
-      <div data-test="error-message" className={`error ${errorClass}`}>
+  return (
+    <div data-test="component-app" className="App">
+      <h1 data-test="counter-display">
+        The counter is currently&nbsp;
+        <span data-test="count">{count}</span>
+      </h1>
+      {/* Notes: 
+      - using ternary on the error state to determine whether or not to hide 
+      - the 'error' and 'hidden' classes are defined in App.css
+      */}
+      <div data-test="error-message" className={`error ${error ? '' : 'hidden'}`}>
         The counter cannot go below 0
       </div>
       <button
         data-test="increment-button"
-        onClick={this.incrementCounter}
-        >
+        onClick={() => {
+          if (error) { setError(false); }
+          setCount(count + 1)
+        }
+      }
+      >
         Increment counter
       </button>
       <button
         data-test="decrement-button"
-        onClick={this.decrementCounter}
-        >
+        onClick={() => {
+          if (count > 0) {
+            setCount(count - 1)
+          } else {
+            setError(true);
+          }
+        }
+      }
+      >
         Decrement counter
       </button>
-      </div>
-    );
-  }
+    </div>
+  );
 }
 
 export default App;
