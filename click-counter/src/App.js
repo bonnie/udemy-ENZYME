@@ -8,8 +8,8 @@ function App() {
   return (
     <div data-test="component-app" className="App">
       <h1 data-test="counter-display">
-        The counter is currently 
-        <span data-test="count"> {count}</span>
+        The counter is currently&nbsp; 
+        <span data-test="count">{count}</span>
       </h1>
       <button
         data-test="increment-button"
