@@ -1,9 +1,7 @@
 import React from 'react';
-import { render } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+test('future test goes here', () => {
+  // just a placeholder test so that jest won't complain about
+  // test-less test file
 });
