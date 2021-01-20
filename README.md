@@ -1,9 +1,3 @@
-# udemy-react-testing-projects
-Code for projects presented in Udemy "React Testing with Jest and Enzyme" course
+# udemy-react-testing-projects-ENZYME
 
-## Project READMEs
-See individual project READMEs (in their directories) for more information. 
-
-  * [Click Counter](https://github.com/flyrightsister/udemy-react-testing-projects/blob/master/click-counter/README.md)
-  * [Jotto](https://github.com/flyrightsister/udemy-react-testing-projects/blob/master/jotto/README.md)
-  * [Random Word Server](https://github.com/flyrightsister/udemy-react-testing-projects/blob/master/random-word-server/README.md)
+Code for projects presented in Udemy [React Testing with Jest and Enzyme](https://www.udemy.com/course/react-testing-with-jest-and-enzyme/?referralCode=3A42BF689E28CADB0587) course
