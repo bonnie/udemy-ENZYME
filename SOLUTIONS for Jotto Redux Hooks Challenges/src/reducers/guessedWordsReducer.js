@@ -1,4 +1,4 @@
-import { actionTypes } from '../actions';
+import { actionTypes } from "../actions";
 
 /**
  * @function guessedWordsReducer
@@ -6,11 +6,13 @@ import { actionTypes } from '../actions';
  * @param {object} action - action to be reduced.
  * @returns {array} - new guessedWords state.
  */
- export default (state=[], action) => {
-  switch(action.type) {
+export default (state = [], action) => {
+  switch (action.type) {
     case actionTypes.GUESS_WORD:
       return [...state, action.payload];
+    case actionTypes.RESET_GAME:
+      return [];
     default:
       return state;
   }
-}
+};

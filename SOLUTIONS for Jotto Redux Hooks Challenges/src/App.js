@@ -10,9 +10,9 @@ import TotalGuesses from "./TotalGuesses";
 import NewWordButton from "./NewWordButton";
 // END: Challenge #2: Reset Game
 
-// Challenge #2: Reset Game
+// Challenge #3: Give up
 import SecretWordReveal from "./SecretWordReveal";
-// END: Challenge #2: Reset Game
+// END: Challenge #3: Give up
 
 // Challenge #4: Enter Secret Word
 import EnterWordButton from "./EnterWordButton";
@@ -44,9 +44,17 @@ function App() {
   const guessedWords = useSelector((state) => state.guessedWords);
   const secretWord = useSelector((state) => state.secretWord);
 
-  // Challenge #2
+  // Challenge #3
   const gaveUp = useSelector((state) => state.gaveUp);
-  // END: Challenge #2
+  // END: Challenge #3
+
+  // Challenge #4
+  const userEnter = useSelector((state) => state.userEnter);
+  // END: Challenge #4
+
+  // Challenge #5
+  const serverError = useSelector((state) => state.serverError);
+  // END: Challenge #5
 
   // so that we can dispatch an action
   const dispatch = useDispatch();
@@ -56,19 +64,55 @@ function App() {
     dispatch(getSecretWord());
   }, []);
 
+  // Challenge #4: Enter Secret Word
+  let contents;
+  // Challenge #5: Server Error
+  if (serverError) {
+    contents = <ServerError />;
+    // END: Challenge #5: Server Error
+  } else if (userEnter === "inProgress") {
+    contents = (
+      <EnterWordForm formAction={(word) => dispatch(setUserSecretWord(word))} />
+    );
+  } else {
+    contents = (
+      <div>
+        <Congrats success={success} />
+
+        {/* Challenge #3: Give Up Button */}
+        <SecretWordReveal display={gaveUp} secretWord={secretWord} />
+        {/* END: Challenge #3: Give Up Button */}
+
+        {/* Challenge #2 and #3 */}
+        <NewWordButton
+          display={success || gaveUp}
+          resetAction={() => dispatch(resetGame())}
+        />
+        {/* END: Challenge #2 and #3 */}
+
+        <Input />
+        <GuessedWords guessedWords={guessedWords} />
+
+        {/* Challenge #1: Number of guesses */}
+        <TotalGuesses guessCount={guessedWords.length} />
+        {/* END: Challenge #1: Number of guesses */}
+
+        {/* Challenge #4: Enter Secret Word */}
+        <EnterWordButton
+          display={guessedWords.length === 0}
+          buttonAction={() => dispatch(setUserEntering())}
+        />
+        {/* END: Challenge #4: Enter Secret Word */}
+      </div>
+    );
+  }
   return (
     <div data-test="component-app" className="container">
       <h1>Jotto</h1>
-
-      {/* Challenge #2 and #3 */}
-      <NewWordButton display={success || gaveUp} resetAction={resetGame} />
-      {/* END: Challenge #2 and #3 */}
-
-      <Congrats success={success} />
-      <Input success={success} secretWord={secretWord} />
-      <GuessedWords guessedWords={guessedWords} />
+      {contents}
     </div>
   );
+  // END: Challenge #4: Enter Secret Word
 }
 
 export default App;

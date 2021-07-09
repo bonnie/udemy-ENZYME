@@ -1,4 +1,4 @@
-import { actionTypes } from '../actions';
+import { actionTypes } from "../actions";
 
 /**
  * @function successReducer
@@ -6,11 +6,13 @@ import { actionTypes } from '../actions';
  * @param {object} action - action to be reduced.
  * @returns {boolean} - new success state.
  */
-export default (state=false, action) => {
-  switch(action.type) {
-    case (actionTypes.CORRECT_GUESS):
+export default (state = false, action) => {
+  switch (action.type) {
+    case actionTypes.CORRECT_GUESS:
       return true;
+    case actionTypes.RESET_GAME:
+      return false;
     default:
       return state;
   }
-}
+};

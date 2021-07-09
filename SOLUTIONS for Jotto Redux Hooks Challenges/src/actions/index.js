@@ -1,9 +1,9 @@
 import axios from "axios";
 
 import { getLetterMatchCount } from "../helpers";
-import { wordnikKey } from "../../config.js";
+import { wordnikKey } from "../config.js";
 
-export const WORDNIK_URL = `https://api.wordnik.com/v4/words.json/randomWord?hasDictionaryDef=true&minCorpusCount=1000&minDictionaryCount=100&maxDictionaryCount=-1&minLength=5&maxLength=5&api_key=${wordnikKey}`;
+export const WORDNIK_URL = `https://api.wordnik.com/v4/words.json/randomWord?hasDictionaryDef=true&minLength=5&maxLength=5&api_key=${wordnikKey}`;
 
 export const actionTypes = {
   CORRECT_GUESS: "CORRECT_GUESS",
@@ -87,7 +87,8 @@ const getSecretWordWordnikDispatch = (dispatch) => {
         payload: response.data.word,
       });
     })
-    .catch((err) => {
+    .catch((error) => {
+      console.log("------>ERROR!", error);
       dispatch({ type: actionTypes.SERVER_ERROR });
     });
 };
